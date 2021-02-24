@@ -10,9 +10,9 @@ namespace CS321_W3D2_BookAPI.Data
         // TODO: implement a DbSet<Author> property
 
         // This method runs once when the DbContext is first used.
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public BookContext(DbContextOptions options) : base(options)
         {
-            // TODO: use optionsBuilder to configure a Sqlite db
+            
         }
 
         // This method runs once when the DbContext is first used.
