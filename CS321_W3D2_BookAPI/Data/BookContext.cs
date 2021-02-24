@@ -5,7 +5,7 @@ namespace CS321_W3D2_BookAPI.Data
 {
     public class BookContext : DbContext
     {
-        // TODO: implement a DbSet<Book> property
+        public DbSet<Book> Books { get; set; }
 
         // TODO: implement a DbSet<Author> property
 
