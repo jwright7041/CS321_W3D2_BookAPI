@@ -2,6 +2,7 @@
 using System.Linq;
 using CS321_W3D2_BookAPI.Data;
 using CS321_W3D2_BookAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS321_W3D2_BookAPI.Services
 {
@@ -27,13 +28,13 @@ namespace CS321_W3D2_BookAPI.Services
         public Book Get(int id)
         {
             // TODO: return the specified Book using Find()
-            return _bookContext.Books.Find(id);
+            return _bookContext.Books.Include(b => b.Author).FirstOrDefault(b => b.Id == id);
         }
 
         public IEnumerable<Book> GetAll()
         {
             // TODO: return all Books using ToList()
-            return _bookContext.Books.ToList();
+            return _bookContext.Books.Include(b => b.Author).ToList();
         }
 
         public Book Update(Book updatedBook)
